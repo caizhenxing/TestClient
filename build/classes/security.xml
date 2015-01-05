@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" 
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/security 
+	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+    <!-- 自动配置模式，拦截所有请求，有ROLE_USER才可以通过 -->
+    <http auto-config="true">
+        <intercept-url pattern="/**" access="ROLE_ADMIN,ROLE_SERVICE,ROLE_USER"/>
+        <anonymous/>
+        <http-basic/>
+    </http>
+    <!-- 认证管理器。用户名密码都集成在配置文件中 --> 
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="liang.chen" password="111111" authorities="ROLE_ADMIN"/>
+                <user name="Chenjz" password="Welcomejc@" authorities="ROLE_USER"/>
+                <user name="mggao" password="6634472" authorities="ROLE_USER"/>
+                <user name="m_dai" password="123456" authorities="ROLE_USER"/>
+                <user name="nn_li" password="123456" authorities="ROLE_USER"/>
+                <user name="kiven" password="kiven" authorities="ROLE_USER"/>
+                <user name="wirelesstest" password="111111" authorities="ROLE_USER"/>
+                <user name="test" password="!qazxsw2" authorities="ROLE_USER"/>
+                <user name="gwtest" password="123456" authorities="ROLE_USER"/>
+                <user name="flightstest" password="123456" authorities="ROLE_USER"/>
+                <user name="financetd" password="123456" authorities="ROLE_USER"/>
+                <user name="gmx" password="123456" authorities="ROLE_USER"/>
+                <user name="mm" password="123456" authorities="ROLE_USER"/>
+                <user name="lipintest" password="123456" authorities="ROLE_USER"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+</beans:beans>
